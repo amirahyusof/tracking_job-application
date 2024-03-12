@@ -1,1 +1,1 @@
-Hi, this is my project about job webpage that track job application
+Hi, this is my project of job webpage that track job application
