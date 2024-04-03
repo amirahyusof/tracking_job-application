@@ -1,43 +1,40 @@
 import React from 'react';
 import Home from './Components/Home';
-import JobForm from './Components/JobAddForm';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import JobList from './Components/JobList';
-import JobArchieve from './Components/JobArchieve';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-
+import JobForm from './Components/JobForm';
+import JobArchive from './Components/JobArchive';
 
 const App = () => {
   return (
-     <div>
+    <div className="w-full my-12 py-16 px-4 bg-[#4682A9]">
       <BrowserRouter>
       <nav>
-        <ul>
-          <li>
-            <Link to="home">Home</Link>
+      <ul className="flex flex-row list-none py-8 px-10 text-lg text-white">
+          <li className='text-xl px-6 hover:underline'>
+            <Link to="/home">Home</Link>
           </li>
-          <li>
-            <Link to="add">Adding Job</Link>
+          <li className='text-xl px-6 hover:underline'>
+            <Link to="/jobform">Adding Job</Link>
           </li>
-          <li>
-            <Link to="list">Job Listing</Link>
+          <li className='text-xl hover:underline'>
+            <Link to="/joblist">List Job</Link>
           </li>
-          <li>
-            <Link to="archieve">Job Archieve</Link>
+          <li className='text-xl hover:underline'>
+            <Link to="/jobarchive">Job Archive</Link>
           </li>
         </ul>
-      
-      <Routes>
-        <Route index path='/home' element={<Home />} />
-        <Route index path='/addjob' element={<JobForm />} />
-        <Route index path='/joblist' element={<JobList />} />
-        <Route index path='/jobarchieve' element={<JobArchieve />} />
 
-      </Routes>
+        <Routes>
+          <Route index path='/home' element={<Home />} />
+          <Route path='/jobform' element={<JobForm />} />
+          <Route path='/joblist' element={<JobList />} />
+          <Route path='/jobarchive' element={<JobArchive />} />
+        </Routes>
       </nav>
       </BrowserRouter>
-      <Home />
-     </div>
-  
+    </div>
   );
 };
+
 export default App;

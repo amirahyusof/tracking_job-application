@@ -1,6 +1,6 @@
 import React from "react";
 
-function JobArchieve(){
+function JobArchive(){
     return(
         <div>
             <div>
@@ -10,4 +10,4 @@ function JobArchieve(){
     )
 }
 
-export default JobArchieve;
+export default JobArchive;
