@@ -2,7 +2,7 @@ import React from "react";
 
 function JobList(){
     return(
-        <div className="w-full py-16 px-6 bg-[#749BC2]" id="job_apply">
+        <div className="w-full py-16 px-6 bg-[#749BC2]" id="job_list">
             <div>
                 <h2 className="text-center text-2xl my-4">My Job Applications</h2>
             </div>
