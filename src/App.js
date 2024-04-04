@@ -3,6 +3,7 @@ import Home from './Components/Home';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import JobList from './Components/JobList';
 import JobForm from './Components/JobForm';
+import JobApplicationSystem from "./Components/JobApplicationSystem";
 import JobArchive from './Components/JobArchive';
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/jobform' element={<JobForm />} />
           <Route path='/joblist' element={<JobList />} />
           <Route path='/jobarchive' element={<JobArchive />} />
+          <Route path='/jobsystem/*' element={<JobApplicationSystem />} />
         </Routes>
       
       </BrowserRouter>

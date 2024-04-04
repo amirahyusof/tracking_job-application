@@ -1,7 +1,8 @@
 import React from "react";
 
-function JobList({ jobApplications }){
-    console.log(jobApplications);
+
+function JobList({jobDataArray}){
+
 
     return(
         <div className="w-full my-16 py-10 px-4 bg-[#91C8E4]" id="job_list">
@@ -20,15 +21,15 @@ function JobList({ jobApplications }){
                         </tr>
                     </thead>
                     <tbody>
-                        { jobApplications.map( (job,index) =>
+                    {jobDataArray.map((jobData, index) => (
                             <tr key={index}>
-                                <td className="border border-slate-100">{job.title}</td>
-                                <td className="border border-slate-100">{job.company}</td>
-                                <td className="border border-slate-100">{job.category}</td>
-                                <td className="border border-slate-100">{job.portal}</td>
-                                <td className="border border-slate-100">{job.date}</td>
+                                <td className="border border-slate-100">{jobData.title}</td>
+                                <td className="border border-slate-100">{jobData.company}</td>
+                                <td className="border border-slate-100">{jobData.category}</td>
+                                <td className="border border-slate-100">{jobData.portal}</td>
+                                <td className="border border-slate-100">{jobData.date}</td>
                             </tr>
-                        )}
+                    ))}
                     </tbody>
                 </table>
             </div>
