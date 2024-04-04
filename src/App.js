@@ -7,31 +7,31 @@ import JobArchive from './Components/JobArchive';
 
 const App = () => {
   return (
-    <div className="w-full my-12 py-16 px-4 bg-[#4682A9]">
+    <div className="w-full py-8 bg-[#4682A9]">
       <BrowserRouter>
-      <nav>
-      <ul className="flex flex-row list-none py-8 px-10 text-lg text-white">
+      <nav className="flex justify-center items-center">
+      <ul className="flex flex-row space-x-4 list-none  text-lg text-white">
           <li className='text-xl px-6 hover:underline'>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className='text-xl px-6 hover:underline'>
-            <Link to="/jobform">Adding Job</Link>
+            <Link to="/jobform">Add Job</Link>
           </li>
-          <li className='text-xl hover:underline'>
+          <li className='text-xl px-6 hover:underline'>
             <Link to="/joblist">List Job</Link>
           </li>
-          <li className='text-xl hover:underline'>
+          <li className='text-xl px-6 hover:underline'>
             <Link to="/jobarchive">Job Archive</Link>
           </li>
         </ul>
-
+        </nav>
         <Routes>
-          <Route index path='/home' element={<Home />} />
+          <Route index path='/' element={<Home />} />
           <Route path='/jobform' element={<JobForm />} />
           <Route path='/joblist' element={<JobList />} />
           <Route path='/jobarchive' element={<JobArchive />} />
         </Routes>
-      </nav>
+      
       </BrowserRouter>
     </div>
   );
