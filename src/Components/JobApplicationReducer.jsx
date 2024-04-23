@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import JobForm from "./JobForm"
 import JobList from "./JobList";
 
-function JobApplicationSystem() {
+function JobApplicationReducer() {
     const [jobDataArray, setJobDataArray] = useState([]);
 
     return (
@@ -14,4 +14,4 @@ function JobApplicationSystem() {
     );
 }
 
-export default JobApplicationSystem;
+export default JobApplicationReducer;
