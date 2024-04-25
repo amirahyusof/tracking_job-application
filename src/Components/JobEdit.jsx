@@ -1,46 +1,50 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch} from 'react-redux';
-import { addJob } from "./JobApplicationReducer";
+import React, {useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { editJob } from "./JobApplicationReducer";
 
-function JobForm(){
-    const [title, setTitle] = useState('');
-    
-    const [company, setCompany] = useState('');
-    const [category, setCategory] = useState('');
-    const [portal, setPortal] = useState('');
-    const [date, setDate] = useState('');
-
-    const jobs = useSelector((state)=>state.jobs);
+function JobEdit(){
+    const navigate = useNavigate;
+    const {id} = useParams();
+    const jobs = useSelector((state) => state.users);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
+    const existJob = jobs.filter(f => f.id == id);
+    const {title, company, portal, category, date} = existJob[0];
+    const [editTitle, setTitle] = useState(title);
+    const [editCompany, setCompany] = useState(company);
+    const [editCategory, setCategory] = useState(category);
+    const [editPortal, setPortal] = useState(portal);
+    const [editDate, setDate] = useState(date);
 
-    const handleSubmit=(event)=>{
+    const handleEdit = (event) => {
         event.preventDefault();
-        const nextId = jobs.length === 0 ? 1 : jobs[jobs.length - 1].id + 1;
-        dispatch(addJob({id:nextId, title, company, category, portal, date}));
-        navigate('/joblist');
-        };
+        dispatch(editJob({
+            id:id, 
+            title: editTitle, 
+            company: editCompany, 
+            category: editCategory, 
+            portal: editPortal, 
+            date: editDate
+        }))
 
-       
-
-       
-
+        navigate('/job_list')
+    }
 
     return(
-        <div className="w-full py-16 px-6" id="job_form">
+        <div className="w-full py-16 px-6" id="job_edit">
             <div>
-                <h2 className="text-center text-3xl my-4">Adding Job Application</h2>
+                <h2 className="text-center text-3xl my-4">Edit Job Application</h2>
             </div>
             <div >
                 <form 
-                   onSubmit={handleSubmit} 
+                   onSubmit={handleEdit} 
                    className="flex flex-col p-6 text-lg border-4 border-sky-300">
                     <label>Job Title:</label>
                     <input className="mb-4 w-[500px] rounded-md px-2" 
                         type="text" 
                         name="title"
+                        value={editTitle}
                         placeholder="Enter job title"
                         onChange={event => setTitle(event.target.value)} 
                         required />
@@ -49,6 +53,7 @@ function JobForm(){
                     <input className="mb-4 w-[500px] rounded-md text-md px-2" 
                         type="text" 
                         name="company" 
+                        value={editCompany}
                         placeholder="Enter company name"
                         onChange={event => setCompany(event.target.value)} 
                         required />
@@ -56,6 +61,7 @@ function JobForm(){
                     <label>Category:</label>
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="category" 
+                        value={editCategory}
                         onChange={event => setCategory(event.target.value)} required>
                         <option value="">Select Category</option>
                         <option value="government" >Government</option>
@@ -66,6 +72,7 @@ function JobForm(){
                     <label>Job Portal:</label>
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="portal" 
+                        value={editPortal}
                         onChange={event => setPortal(event.target.value)}>
                         <option value="">Select Job Portal</option>
                         <option value="jobstreet">Jobstreet</option>
@@ -81,17 +88,14 @@ function JobForm(){
                     <input className="mb-4 w-[250px]" 
                         type="date" 
                         name="date" 
+                        value={editDate}
                         onChange={event => setDate(event.target.value)} 
                         required />
 
                <div className="text-center">
                     <button className="w-[100px] text-l rounded-md my-4 py-2 mr-4 border bg-[#91C8E4]" 
                     type="submit">
-                        Add
-                    </button>
-                    <button className="w-[100px] text-l rounded-md my-4 py-2 border bg-[#91C8E4]" 
-                    type="reset">
-                        Reset
+                        Save
                     </button>
                </div>
                </form>
@@ -100,4 +104,4 @@ function JobForm(){
     )
 }
 
-export default JobForm;
+export default JobEdit;

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 import JobApplicationReducer from './Components/JobApplicationReducer';
 
 
@@ -39,8 +40,7 @@ const store = configureStore({
 
 store.subscribe(()=>{
     saveState(store.getState())
-})
-
+});
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

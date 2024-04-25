@@ -1,17 +1,30 @@
-import React, { useState } from "react";
-import JobForm from "./JobForm"
-import JobList from "./JobList";
+import { createSlice } from "@reduxjs/toolkit";
+import { dataList } from "./DummyData";
 
-function JobApplicationReducer() {
-    const [jobDataArray, setJobDataArray] = useState([]);
+const jobSlice = createSlice({
+    name:"jobs",
+    initialState: dataList, 
+    reducers: {
+        addJob: (state, action) => {
+            state.push(action.payload)
+        }, 
 
-    return (
-        <div>
-            <h1>Job Application System</h1>
-            <JobForm jobDataArray={jobDataArray} setJobDataArray={setJobDataArray} />
-            <JobList jobDataArray={jobDataArray} />
-        </div>
-    );
-}
+        editJob: (state, action) => {
+            const {id, title, company, category, portal, date} = action.payload;
+            const editJobs = state.find(job => job.id == id);
+            if(editJobs){
+                editJobs.title = title;
+                editJobs.company = company;
+                editJobs.category = category;
+                editJobs.portal = portal;
+                editJobs.date = date;
+            }
+        }
 
-export default JobApplicationReducer;
+
+    }
+})
+
+
+export const {addJob, editJob} = jobSlice.actions;
+export default jobSlice.reducer;
