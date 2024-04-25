@@ -7,6 +7,8 @@ function JobList(){
     const dispatch = useDispatch();
     const jobs = useSelector((state)=>state.jobs);
 
+    
+
 
 
     return(

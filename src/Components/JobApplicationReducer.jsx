@@ -18,7 +18,7 @@ const jobSlice = createSlice({
                 editJobs.category = category;
                 editJobs.portal = portal;
                 editJobs.date = date;
-            }
+            };
         }
 
 

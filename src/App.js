@@ -20,7 +20,7 @@ const App = () => {
             <Link to="/job_form">Add Job</Link>
           </li>
           <li className='text-xl px-6 hover:underline'>
-            <Link to="/job_list">List Job</Link>
+            <Link to="/job_list">Job List</Link>
           </li>
           <li className='text-xl px-6 hover:underline'>
             <Link to="/job_archive">Job Archive</Link>
@@ -31,7 +31,7 @@ const App = () => {
           <Route index path='/' element={<Home />} />
           <Route path='/job_form' element={<JobForm />} />
           <Route path='/job_list' element={<JobList />} />
-          <Route path='/job_edit' element={<JobEdit />} />
+          <Route path='/job_edit/:id' element={<JobEdit />} />
           <Route path='/job_archive' element={<JobArchive />} />
         </Routes>
       </BrowserRouter>

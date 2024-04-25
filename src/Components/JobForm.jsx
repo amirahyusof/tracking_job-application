@@ -20,7 +20,7 @@ function JobForm(){
         event.preventDefault();
         const nextId = jobs.length === 0 ? 1 : jobs[jobs.length - 1].id + 1;
         dispatch(addJob({id:nextId, title, company, category, portal, date}));
-        navigate('/joblist');
+        navigate('/job_list');
         };
 
        
