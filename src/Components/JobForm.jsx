@@ -5,7 +5,6 @@ import { addJob } from "./JobApplicationReducer";
 
 function JobForm(){
     const [title, setTitle] = useState('');
-    
     const [company, setCompany] = useState('');
     const [category, setCategory] = useState('');
     const [portal, setPortal] = useState('');
@@ -16,17 +15,13 @@ function JobForm(){
     const navigate = useNavigate();
 
 
-    const handleSubmit=(event)=>{
+    const handleSubmit = (event) => {
         event.preventDefault();
         const nextId = jobs.length === 0 ? 1 : jobs[jobs.length - 1].id + 1;
-        dispatch(addJob({id:nextId, title, company, category, portal, date}));
+        dispatch(addJob({ id: nextId, title, company, category, portal, date }));
         navigate('/job_list');
-        };
-
-       
-
-       
-
+    };
+    
 
     return(
         <div className="w-full py-16 px-6" id="job_form">

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link }  from "react-router-dom";
+import { deleteJob } from "./JobApplicationReducer";
 
 
 function JobList(){
@@ -8,7 +9,9 @@ function JobList(){
     const jobs = useSelector((state)=>state.jobs);
 
     
-
+    const handleDelete = (id) => {
+        dispatch(deleteJob({id:id}));
+    }
 
 
     return(
@@ -40,7 +43,7 @@ function JobList(){
                                 <td className="border border-slate-100">{job.date}</td>
                                 <td className="border border-slate-100">
                                     <Link className="p-4" to={`/job_edit/${job.id}`}>Edit</Link>
-                                    <button className="">Archive</button>
+                                    <button className="" onClick={() => handleDelete(job.id)}>Delete</button>
                                 </td>
                             </tr>
                     ))}

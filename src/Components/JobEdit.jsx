@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editJob } from "./JobApplicationReducer";
 
 function JobEdit(){
-    const navigate = useNavigate;
+    const navigate = useNavigate();
     const {id} = useParams();
     const dispatch = useDispatch();
+    const jobs = useSelector((state) => state.jobs)
 
-    const existJob = jobs.filter(f => f.id == id);
+    const existJob = jobs.filter(f => f.id === id);
     const {title, company, portal, category, date} = existJob[0];
     const [editTitle, setTitle] = useState(title);
     const [editCompany, setCompany] = useState(company);
@@ -16,18 +17,7 @@ function JobEdit(){
     const [editPortal, setPortal] = useState(portal);
     const [editDate, setDate] = useState(date);
 
-    const [jobs, setJobs] = useState(null);
-    const jobsFromState = useSelector((state) => state.jobs)
     
-   
-    useEffect(()=>{
-        setJobs(jobsFromState);
-    }, [])
-
-    if(jobs===null){
-        return null;
-    }
-
     const handleEdit = (event) => {
         event.preventDefault();
         dispatch(editJob({
@@ -103,12 +93,12 @@ function JobEdit(){
                         onChange={event => setDate(event.target.value)} 
                         required />
 
-               <div className="text-center">
+                    <div className="text-center">
                     <button className="w-[100px] text-l rounded-md my-4 py-2 mr-4 border bg-[#91C8E4]" 
                     type="submits">
                         Save
                     </button>
-               </div>
+                    </div>
                </form>
             </div>
         </div>

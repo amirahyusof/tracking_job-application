@@ -28,7 +28,7 @@ const App = () => {
         </ul>
         </nav>
         <Routes>
-          <Route index path='/' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/job_form' element={<JobForm />} />
           <Route path='/job_list' element={<JobList />} />
           <Route path='/job_edit/:id' element={<JobEdit />} />
