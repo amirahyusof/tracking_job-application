@@ -43,7 +43,7 @@ function JobList(){
                                 <td className="border border-slate-100">{job.date}</td>
                                 <td className="border border-slate-100">
                                     <Link className="p-4" to={`/job_edit/${job.id}`}>Edit</Link>
-                                    <button className="" onClick={() => handleDelete(job.id)}>Delete</button>
+                                    <button className="p-2" onClick={() => handleDelete(job.id)}>Delete</button>
                                 </td>
                             </tr>
                     ))}

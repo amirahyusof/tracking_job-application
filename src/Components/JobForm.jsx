@@ -17,7 +17,8 @@ function JobForm(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const nextId = jobs.length === 0 ? 1 : jobs[jobs.length - 1].id + 1;
+        const maxId = Math.max(...jobs.map(job => job.id));
+        const nextId = maxId === -Infinity ? 1 : maxId + 1;
         dispatch(addJob({ id: nextId, title, company, category, portal, date }));
         navigate('/job_list');
     };

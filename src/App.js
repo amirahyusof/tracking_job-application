@@ -3,7 +3,6 @@ import Home from './Components/Home';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import JobList from './Components/JobList';
 import JobForm from './Components/JobForm';
-import JobArchive from './Components/JobArchive';
 import JobEdit from './Components/JobEdit';
 
 
@@ -22,9 +21,6 @@ const App = () => {
           <li className='text-xl px-6 hover:underline'>
             <Link to="/job_list">Job List</Link>
           </li>
-          <li className='text-xl px-6 hover:underline'>
-            <Link to="/job_archive">Job Archive</Link>
-          </li>
         </ul>
         </nav>
         <Routes>
@@ -32,7 +28,7 @@ const App = () => {
           <Route path='/job_form' element={<JobForm />} />
           <Route path='/job_list' element={<JobList />} />
           <Route path='/job_edit/:id' element={<JobEdit />} />
-          <Route path='/job_archive' element={<JobArchive />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

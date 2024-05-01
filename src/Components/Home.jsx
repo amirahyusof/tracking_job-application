@@ -14,7 +14,7 @@ function Home(){
                 <li>Maintaining a positive mindset is key to navigating the ups and downs of job hunting. Celebrate your achievements, no matter how small, and believe in your abilities to land the right job.</li>
             </div>
             <button className="border w-[100px] mb-4 rounded-full p-2 bg-[#EAD7BB] text-black hover:bg-[#FFF2D8] mt-8">
-                <Link to="/jobform">Add Job</Link>
+                <Link to="/job_form">Add Job</Link>
             </button>
            </div>
         </div>

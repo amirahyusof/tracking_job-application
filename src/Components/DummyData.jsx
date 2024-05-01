@@ -22,5 +22,13 @@ export const dataList = [
         category: "Swasta", 
         portal:"MyFutureJob", 
         date: "3/8/2023",
+    }, 
+    {
+        id: 4, 
+        title: "testing",
+        company: "Testing", 
+        category: "Swasta", 
+        portal:"Indeed", 
+        date: "5/8/2023",
     }
 ]
