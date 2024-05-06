@@ -29,6 +29,6 @@ export const dataList = [
         company: "Testing", 
         category: "Swasta", 
         portal:"Indeed", 
-        date: "5-8-2023",
+        date: "05-08-2023",
     }
 ]

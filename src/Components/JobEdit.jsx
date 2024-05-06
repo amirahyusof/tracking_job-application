@@ -9,7 +9,7 @@ function JobEdit(){
     const {id} = useParams();
     
     const jobs = useSelector((state) => state.jobs)
-    const existJob = jobs.filter(f => f.id == id);
+    const existJob = jobs.filter(f => f.id === id);
     const {title, company,category, portal, date} = existJob[0];
     const [editTitle, setTitle] = useState(title);
     const [editCompany, setCompany] = useState(company);
@@ -20,8 +20,9 @@ function JobEdit(){
     const handleSave = (event) => {
         event.preventDefault();
         dispatch(editJob({
+            id: id,
             title: editTitle,
-            company: editCategory,
+            company: editCompany,
             category: editCategory,
             portal: editPortal,
             date: editDate

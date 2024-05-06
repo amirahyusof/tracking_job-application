@@ -23,13 +23,13 @@ function JobList(){
                 <table className="table-fixed mx-auto">
                     <thead>
                         <tr>
-                        <th className="border border-slate-100 w-[100px] md:w-[120px]">ID</th>
+                        <th className="border border-slate-100 w-[60px] md:w-[120px]">ID</th>
                             <th className="border border-slate-100 w-[200px] md:w-[120px]">Job Title</th>
                             <th className="border border-slate-100  w-[200px] md:w-[120px]">Company</th>
                             <th className="border border-slate-100 w-[100px] md:w-[120px]">Category</th>
                             <th className="border border-slate-100 w-[100px] md:w-[120px]">Portal</th>
-                            <th className="border border-slate-100 w-[100px] md:w-[120px]">Date</th>
-                            <th className="border border-slate-100 w-[200px] md:w-[120px]">Action</th>
+                            <th className="border border-slate-100 w-[140px] lg:w-[150px]">Date</th>
+                            <th className="border border-slate-100 w-[180px] lg:w-[200px]">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,10 +38,10 @@ function JobList(){
                                 <td className="border border-slate-100 text-center">{job.id}</td>
                                 <td className="border border-slate-100">{job.title}</td>
                                 <td className="border border-slate-100">{job.company}</td>
-                                <td className="border border-slate-100">{job.category}</td>
-                                <td className="border border-slate-100">{job.portal}</td>
-                                <td className="border border-slate-100">{job.date}</td>
-                                <td className="border border-slate-100">
+                                <td className="border border-slate-100 text-center">{job.category}</td>
+                                <td className="border border-slate-100 text-center">{job.portal}</td>
+                                <td className="border border-slate-100 text-center">{job.date}</td>
+                                <td className="border border-slate-100 text-center">
                                     <Link className="p-4" to={`/job_edit/${job.id}`}>Edit</Link>
                                     <button className="p-2" onClick={() => handleDelete(job.id)}>Delete</button>
                                 </td>
