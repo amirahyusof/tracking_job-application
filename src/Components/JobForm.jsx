@@ -25,7 +25,7 @@ function JobForm(){
     
 
     return(
-        <div className="w-full py-16 px-6" id="job_form">
+        <div className="w-full lg:w-[650px] lg:justify-center py-16 px-6" id="job_form">
             <div>
                 <h2 className="text-center text-3xl my-4">Adding Job Application</h2>
             </div>
@@ -54,9 +54,9 @@ function JobForm(){
                         name="category" 
                         onChange={event => setCategory(event.target.value)} required>
                         <option value="">Select Category</option>
-                        <option value="government" >Government</option>
-                        <option value="swasta">Swasta</option>
-                        <option value="freelance">Freelance</option>
+                        <option value="Government" >Government</option>
+                        <option value="Swasta">Swasta</option>
+                        <option value="Freelance">Freelance</option>
                     </select>
 
                     <label>Job Portal:</label>
@@ -64,19 +64,20 @@ function JobForm(){
                         name="portal" 
                         onChange={event => setPortal(event.target.value)}>
                         <option value="">Select Job Portal</option>
-                        <option value="jobstreet">Jobstreet</option>
-                        <option value="futurejob">myFutureJob</option>
-                        <option value="indeed">Indeed</option>
-                        <option value="linkedin">LinkedIn</option>
-                        <option value="upwork">Upwork</option>
-                        <option value="fiver">Fiver</option>
-                        <option value="others">Others</option>
+                        <option value="Jobstreet">Jobstreet</option>
+                        <option value="MyFuturejob">myFutureJob</option>
+                        <option value="Indeed">Indeed</option>
+                        <option value="Linkedin">LinkedIn</option>
+                        <option value="Upwork">Upwork</option>
+                        <option value="Fiver">Fiver</option>
+                        <option value="Others">Others</option>
                     </select>
                     
                     <label>Date Apply:</label>
                     <input className="mb-4 w-[250px]" 
                         type="date" 
                         name="date" 
+                        pattern="\d{2}-\d{2}-\d{4}"
                         onChange={event => setDate(event.target.value)} 
                         required />
 

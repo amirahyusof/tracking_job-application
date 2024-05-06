@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import JobApplicationReducer from './Components/JobApplicationReducer';
 
 
-const loadState = () => {
+/*const loadState = () => {
     try {
         const serializedState = localStorage.getItem('reduxState');
         if(serializedState === null){
@@ -29,18 +29,18 @@ const saveState = (state) => {
     }
 };
 
-const preloadedState = loadState()
+const preloadedState = loadState()*/
 
 const store = configureStore({
     reducer: {
         jobs: JobApplicationReducer
     }, 
-    preloadedState: preloadedState   
+    /*preloadedState: preloadedState */ 
 });
 
-store.subscribe(()=>{
+/*store.subscribe(()=>{
     saveState(store.getState())
-});
+});*/
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

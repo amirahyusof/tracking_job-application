@@ -5,7 +5,7 @@ export const dataList = [
         company: "Tech Sdn Bhd", 
         category: "Swasta", 
         portal:"Jobstreet", 
-        date: "3/8/2023",
+        date: "04-04-2023",
     }, 
     {
         id: 2, 
@@ -13,7 +13,7 @@ export const dataList = [
         company: "Ai Leading Sdn Bhd", 
         category: "Swasta", 
         portal:"MyFutureJob", 
-        date: "3/8/2023",
+        date: "03-08-2023",
     }, 
     {
         id: 3, 
@@ -21,7 +21,7 @@ export const dataList = [
         company: "Tech Swidt Sdn Bhd", 
         category: "Swasta", 
         portal:"MyFutureJob", 
-        date: "3/8/2023",
+        date: "03-08-2023",
     }, 
     {
         id: 4, 
@@ -29,6 +29,6 @@ export const dataList = [
         company: "Testing", 
         category: "Swasta", 
         portal:"Indeed", 
-        date: "5/8/2023",
+        date: "5-8-2023",
     }
 ]

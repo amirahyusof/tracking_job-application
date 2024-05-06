@@ -10,9 +10,9 @@ const jobSlice = createSlice({
             state.push(action.payload);
          }, 
  
-         editJob: (state, action) => {
+        editJob: (state, action) => {
              const {id, title, company, category, portal, date} = action.payload;
-             const editJobs = state.find(job => job.id === id);
+             const editJobs = state.find(job => job.id == id);
              if(editJobs){
                  editJobs.title = title;
                  editJobs.company = company;
@@ -24,9 +24,9 @@ const jobSlice = createSlice({
  
          deleteJob: (state, action) => {
              const {id} = action.payload;
-             const deleteJob = state.find(job => job?.id == id);
+             const deleteJob = state.find(job => job.id == id);
              if(deleteJob){
-               return state.filter( f => f?.id !== id);
+               return state.filter( f => f.id !== id);
              };
          },
  
@@ -39,5 +39,5 @@ const jobSlice = createSlice({
 })
 
 
-export const {addJob, editJob, deleteJob, resetJobs} = jobSlice.actions;
+export const {addJob, editJob, deleteJob} = jobSlice.actions;
 export default jobSlice.reducer;
