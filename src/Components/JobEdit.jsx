@@ -11,7 +11,10 @@ function JobEdit(){
     const jobs = useSelector((state) => state.jobs)
     const existJob = jobs.filter(f => f.id == id);
     const {title, company,category, portal, date} = existJob[0];
+
     const formattedDate = formatDateInput(date);
+    console.log("formattedDate:", formattedDate);
+
     const [editTitle, setTitle] = useState(title);
     const [editCompany, setCompany] = useState(company);
     const [editCategory, setCategory] = useState(category);
@@ -19,9 +22,13 @@ function JobEdit(){
     const [editDate, setDate] = useState(formattedDate);
 
     function formatDateInput(dateString){
-        const [year, month, day] = dateString.split("-");
+        const [day, month, year] = dateString.split("-");
         return `${year}-${month}-${day}`;
     }
+
+    useEffect(()=>{
+        setDate(formattedDate);
+    }, [formattedDate]);
 
 
     const handleSave = (event) => {
@@ -40,9 +47,9 @@ function JobEdit(){
 
 
     return(
-        <div className="w-full py-16 px-6" id="job_edit">
+        <div className="w-full md:w-[900px] mx-auto py-16 px-6" id="job_edit">
             <div>
-                <h2 className="text-center text-3xl my-4">Edit Job Application</h2>
+                <h2 className="text-center text-3xl my-4 text-[#0F1035]">Edit Job Application</h2>
             </div>
             <div >
                 <form 
@@ -93,12 +100,11 @@ function JobEdit(){
                     </select>
                     
                     <label>Date Apply:</label>
-                    <input className="mb-4 w-[250px]" 
+                    <input className="mb-4 w-[250px] rounded-md text-md px-2" 
                         type="date" 
                         name="date" 
                         value={editDate}
-                        onChange={event => setDate(event.target.value)} 
-                        required />
+                        onChange={event => setDate(event.target.value)} />
 
                     <div className="text-center">
                     <button className="w-[100px] text-l rounded-md my-4 py-2 mr-4 border bg-[#91C8E4]" 

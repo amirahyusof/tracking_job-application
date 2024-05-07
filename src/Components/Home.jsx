@@ -25,11 +25,11 @@ function Home(){
                 }} 
                 modules={[Pagination, Autoplay]}
                 className="mySwiper">
-                <SwiperSlide>Each job application you submit brings you one step closer to your dream job. Stay persistent and keep applying, even if you face setbacks along the way.</SwiperSlide>
-                <SwiperSlide>Use each job application as an opportunity to learn and improve. Reflect on your experiences, gather feedback, and refine your approach to increase your chances of success.</SwiperSlide>
-                <SwiperSlide>Maintaining a positive mindset is key to navigating the ups and downs of job hunting. Celebrate your achievements, no matter how small, and believe in your abilities to land the right job.</SwiperSlide>
+                <SwiperSlide className="my-4 mb-6">Each job application you submit brings you one step closer to your dream job. Stay persistent and keep applying, even if you face setbacks along the way.</SwiperSlide>
+                <SwiperSlide className="my-4 mb-6">Use each job application as an opportunity to learn and improve. Reflect on your experiences, gather feedback, and refine your approach to increase your chances of success.</SwiperSlide>
+                <SwiperSlide className="my-4 mb-6">Maintaining a positive mindset is key to navigating the ups and downs of job hunting. Celebrate your achievements, no matter how small, and believe in your abilities to land the right job.</SwiperSlide>
             </Swiper>
-            <button className="border w-[120px] mb-4 rounded-full p-2 bg-[#365486] text-[#DCF2F1] hover:bg-[#7FC7D9] hover:text-black mt-8">
+            <button className="border w-[120px] mb-4 rounded-full p-2 bg-[#365486] text-[#DCF2F1] hover:bg-[#0F1035] mt-8">
                 <Link to="/job_form">Add Job</Link>
             </button>
            </div>

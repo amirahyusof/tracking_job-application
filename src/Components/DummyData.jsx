@@ -1,34 +1,27 @@
 export const dataList = [
     {
         id: 1, 
-        title: "software developer",
-        company: "Tech Sdn Bhd", 
+        title: "Testing",
+        company: "Testing", 
         category: "Swasta", 
         portal:"Jobstreet", 
         date: "04-04-2023",
     }, 
     {
         id: 2, 
-        title: "junior front end developer",
-        company: "Ai Leading Sdn Bhd", 
-        category: "Swasta", 
-        portal:"MyFutureJob", 
+        title: "Testing 2",
+        company: "Testing 2", 
+        category: "Freelance", 
+        portal:"Fiver", 
         date: "03-08-2023",
     }, 
     {
         id: 3, 
-        title: "front end developer",
-        company: "Tech Swidt Sdn Bhd", 
+        title: "Testing 3",
+        company: "Testing 4", 
         category: "Swasta", 
-        portal:"MyFutureJob", 
+        portal:"LinkedIn", 
         date: "03-08-2023",
     }, 
-    {
-        id: 4, 
-        title: "testing",
-        company: "Testing", 
-        category: "Swasta", 
-        portal:"Indeed", 
-        date: "05-08-2023",
-    }
+    
 ]

@@ -17,17 +17,25 @@ function JobForm(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const maxId = Math.max(...jobs.map(job => job.id));
-        const nextId = maxId === -Infinity ? 1 : maxId + 1;
+        const nextId = jobs.length === 0 ? 1 : jobs[jobs.length - 1].id + 1;
         dispatch(addJob({ id: nextId, title, company, category, portal, date }));
         navigate('/job_list');
     };
+
+    const handleReset = (event) => {
+        event.preventDefault();
+        setTitle("");
+        setCompany("");
+        setCategory("");
+        setPortal("");
+        setDate("");
+    }
     
 
     return(
-        <div className="w-full lg:w-[650px] lg:justify-center py-16 px-6" id="job_form">
+        <div className="w-full md:w-[900px] mx-auto py-16 px-6" id="job_form">
             <div>
-                <h2 className="text-center text-3xl my-4">Adding Job Application</h2>
+                <h2 className="text-center text-3xl my-4 text-[#0F1035]">Adding Job Application</h2>
             </div>
             <div >
                 <form 
@@ -78,20 +86,21 @@ function JobForm(){
                     </select>
                     
                     <label>Date Apply:</label>
-                    <input className="mb-4 w-[250px]" 
+                    <input className="mb-4 w-[250px] rounded-md text-md px-2" 
                         type="date" 
                         name="date" 
                         value={date}
                         onChange={event => setDate(event.target.value)} 
                         required />
 
-               <div className="text-center">
-                    <button className="w-[100px] text-l rounded-md my-4 py-2 mr-4 border bg-[#91C8E4]" 
+               <div className="text-center ">
+                    <button className="border w-[100px] rounded-md m-4 py-2 bg-[#365486] text-[#DCF2F1] hover:bg-[#7FC7D9] hover:text-black mt-8" 
                     type="submit">
                         Add
                     </button>
-                    <button className="w-[100px] text-l rounded-md my-4 py-2 border bg-[#91C8E4]" 
-                    type="reset">
+                    <button className="w-[100px] text-l rounded-md my-4 py-2 border bg-[#B4B4B8]" 
+                    type="reset"
+                    onClick={handleReset}>
                         Reset
                     </button>
                </div>
