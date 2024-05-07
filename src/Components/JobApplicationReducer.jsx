@@ -2,6 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { dataList } from "./DummyData";
 
 const formatDate = (dateString) => {
+    if(!dateString){
+        return "";
+    }
+
     const [year, month, day] = dateString.split("-");
     return `${day}-${month}-${year}`;
 }
@@ -19,7 +23,7 @@ const jobSlice = createSlice({
  
         editJob: (state, action) => {
             const { id, title, company, category, portal, date} = action.payload;
-            const editJobs = state.find((job) => job.id == id);
+            const editJobs = state.find(job => job.id == id);
             if(editJobs){
                 const formattedDate = formatDate(date);
                  editJobs.title = title;

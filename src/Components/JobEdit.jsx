@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { editJob } from "./JobApplicationReducer";
@@ -9,13 +9,15 @@ function JobEdit(){
     const {id} = useParams();
     
     const jobs = useSelector((state) => state.jobs)
-    const existJob = jobs.filter(f => f.id === id);
+    const existJob = jobs.filter(f => f.id == id);
     const {title, company,category, portal, date} = existJob[0];
+
     const [editTitle, setTitle] = useState(title);
     const [editCompany, setCompany] = useState(company);
     const [editCategory, setCategory] = useState(category);
     const [editPortal, setPortal] = useState(portal);
     const [editDate, setDate] = useState(date);
+
 
     const handleSave = (event) => {
         event.preventDefault();
@@ -74,12 +76,12 @@ function JobEdit(){
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="portal" 
                         value={editPortal}
-                        onChange={event => setPortal(event.target.value)}>
+                        onChange={event => setPortal(event.target.value)} required>
                         <option value="">Select Job Portal</option>
                         <option value="Jobstreet">Jobstreet</option>
-                        <option value="MyFuturejob">MyFutureJob</option>
+                        <option value="MyFutureJob">MyFutureJob</option>
                         <option value="Indeed">Indeed</option>
-                        <option value="Linkedin">LinkedIn</option>
+                        <option value="LinkedIn">LinkedIn</option>
                         <option value="Upwork">Upwork</option>
                         <option value="Fiver">Fiver</option>
                         <option value="Others">Others</option>

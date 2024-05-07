@@ -37,6 +37,7 @@ function JobForm(){
                     <input className="mb-4 w-[500px] rounded-md px-2" 
                         type="text" 
                         name="title"
+                        value={title}
                         placeholder="Enter job title"
                         onChange={event => setTitle(event.target.value)} 
                         required />
@@ -45,6 +46,7 @@ function JobForm(){
                     <input className="mb-4 w-[500px] rounded-md text-md px-2" 
                         type="text" 
                         name="company" 
+                        value={company}
                         placeholder="Enter company name"
                         onChange={event => setCompany(event.target.value)} 
                         required />
@@ -52,6 +54,7 @@ function JobForm(){
                     <label>Category:</label>
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="category" 
+                        value={category}
                         onChange={event => setCategory(event.target.value)} required>
                         <option value="">Select Category</option>
                         <option value="Government" >Government</option>
@@ -62,12 +65,13 @@ function JobForm(){
                     <label>Job Portal:</label>
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="portal" 
-                        onChange={event => setPortal(event.target.value)}>
+                        value={portal}
+                        onChange={event => setPortal(event.target.value)} requiredthe>
                         <option value="">Select Job Portal</option>
                         <option value="Jobstreet">Jobstreet</option>
-                        <option value="MyFuturejob">myFutureJob</option>
+                        <option value="MyFutureJob">MyFutureJob</option>
                         <option value="Indeed">Indeed</option>
-                        <option value="Linkedin">LinkedIn</option>
+                        <option value="LinkedIn">LinkedIn</option>
                         <option value="Upwork">Upwork</option>
                         <option value="Fiver">Fiver</option>
                         <option value="Others">Others</option>
@@ -77,6 +81,7 @@ function JobForm(){
                     <input className="mb-4 w-[250px]" 
                         type="date" 
                         name="date" 
+                        value={date}
                         pattern="\d{2}-\d{2}-\d{4}"
                         onChange={event => setDate(event.target.value)} 
                         required />
