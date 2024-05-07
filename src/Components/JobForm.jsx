@@ -82,7 +82,6 @@ function JobForm(){
                         type="date" 
                         name="date" 
                         value={date}
-                        pattern="\d{2}-\d{2}-\d{4}"
                         onChange={event => setDate(event.target.value)} 
                         required />
 

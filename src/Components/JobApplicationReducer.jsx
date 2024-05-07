@@ -2,12 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { dataList } from "./DummyData";
 
 const formatDate = (dateString) => {
-    if(!dateString){
-        return "";
-    }
-
     const [year, month, day] = dateString.split("-");
-    return `${day}-${month}-${year}`;
+    return `${day}/${month}/${year}`;
 }
 
 

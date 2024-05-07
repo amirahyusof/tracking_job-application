@@ -11,12 +11,17 @@ function JobEdit(){
     const jobs = useSelector((state) => state.jobs)
     const existJob = jobs.filter(f => f.id == id);
     const {title, company,category, portal, date} = existJob[0];
-
+    const formattedDate = formatDateInput(date);
     const [editTitle, setTitle] = useState(title);
     const [editCompany, setCompany] = useState(company);
     const [editCategory, setCategory] = useState(category);
     const [editPortal, setPortal] = useState(portal);
-    const [editDate, setDate] = useState(date);
+    const [editDate, setDate] = useState(formattedDate);
+
+    function formatDateInput(dateString){
+        const [year, month, day] = dateString.split("-");
+        return `${year}-${month}-${day}`;
+    }
 
 
     const handleSave = (event) => {
@@ -91,7 +96,6 @@ function JobEdit(){
                     <input className="mb-4 w-[250px]" 
                         type="date" 
                         name="date" 
-                        pattern="\d{2}-\d{2}-\d{4}"
                         value={editDate}
                         onChange={event => setDate(event.target.value)} 
                         required />

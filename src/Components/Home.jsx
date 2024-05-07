@@ -10,7 +10,7 @@ function Home(){
     return(
        <div className="w-full my-16 py-10 px-4 bg-[#91C8E4]" id="home">
            <div className="w-full mx-auto text-center">
-           <h1 className="my-4 text-4xl font-bold text-[#F6F4EB]">Welcome to Job Application Tracker</h1>
+           <h1 className="my-4 text-4xl font-bold text-[#0F1035]">Welcome to Job Application Tracker</h1>
             <p className="text-lg py-4">Job hunting can sometimes feel like a daunting journey, filled with uncertainties and rejections. 
                However, it's essential to stay motivated and focused on your goals.</p>
             <Swiper 
@@ -29,7 +29,7 @@ function Home(){
                 <SwiperSlide>Use each job application as an opportunity to learn and improve. Reflect on your experiences, gather feedback, and refine your approach to increase your chances of success.</SwiperSlide>
                 <SwiperSlide>Maintaining a positive mindset is key to navigating the ups and downs of job hunting. Celebrate your achievements, no matter how small, and believe in your abilities to land the right job.</SwiperSlide>
             </Swiper>
-            <button className="border w-[100px] mb-4 rounded-full p-2 bg-[#EAD7BB] text-black hover:bg-[#FFF2D8] mt-8">
+            <button className="border w-[120px] mb-4 rounded-full p-2 bg-[#365486] text-[#DCF2F1] hover:bg-[#7FC7D9] hover:text-black mt-8">
                 <Link to="/job_form">Add Job</Link>
             </button>
            </div>
