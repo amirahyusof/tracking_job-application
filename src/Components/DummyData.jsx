@@ -18,7 +18,7 @@ export const dataList = [
     {
         id: 3, 
         title: "Testing 3",
-        company: "Testing 4", 
+        company: "Testing 3", 
         category: "Swasta", 
         portal:"LinkedIn", 
         date: "03-08-2023",

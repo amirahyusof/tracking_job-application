@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch} from 'react-redux';
-import { addJob } from "./JobApplicationReducer";
+
 
 function JobForm(){
     const [title, setTitle] = useState('');
@@ -10,15 +9,32 @@ function JobForm(){
     const [portal, setPortal] = useState('');
     const [date, setDate] = useState('');
 
-    const jobs = useSelector((state)=>state.jobs);
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    useEffect(()=> {
+        const saveTitle = localStorage.getItem('title') || "";
+        const saveCompany = localStorage.getItem('company') || "";
+        const saveCategory = localStorage.getItem('category') || "";
+        const savePortal = localStorage.getItem('portal') || "";
+        const saveDate = localStorage.getItem('date') || "";
+        
+        setTitle(saveTitle);
+        setCompany(saveCompany);
+        setCategory(saveCategory);
+        setPortal(savePortal);
+        setDate(saveDate);
+        
+    }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const nextId = jobs.length === 0 ? 1 : jobs[jobs.length - 1].id + 1;
-        dispatch(addJob({ id: nextId, title, company, category, portal, date }));
+       
+        localStorage.setItem('title', title)
+        localStorage.setItem('company', company)
+        localStorage.setItem('category', category)
+        localStorage.setItem('portal', portal)
+        localStorage.setItem('date', date)
+
         navigate('/job_list');
     };
 
@@ -47,7 +63,7 @@ function JobForm(){
                         name="title"
                         value={title}
                         placeholder="Enter job title"
-                        onChange={event => setTitle(event.target.value)} 
+                        onChange={ (event) => setTitle(event.target.value)} 
                         required />
                     
                     <label>Company:</label>
@@ -56,14 +72,14 @@ function JobForm(){
                         name="company" 
                         value={company}
                         placeholder="Enter company name"
-                        onChange={event => setCompany(event.target.value)} 
+                        onChange={ (event) => setCompany(event.target.value)} 
                         required />
 
                     <label>Category:</label>
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="category" 
                         value={category}
-                        onChange={event => setCategory(event.target.value)} required>
+                        onChange={ (event) => setCategory(event.target.value)} required>
                         <option value="">Select Category</option>
                         <option value="Government" >Government</option>
                         <option value="Swasta">Swasta</option>
@@ -74,7 +90,7 @@ function JobForm(){
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="portal" 
                         value={portal}
-                        onChange={event => setPortal(event.target.value)} requiredthe>
+                        onChange={ (event) => setPortal(event.target.value)} requiredthe>
                         <option value="">Select Job Portal</option>
                         <option value="Jobstreet">Jobstreet</option>
                         <option value="MyFutureJob">MyFutureJob</option>
@@ -90,7 +106,7 @@ function JobForm(){
                         type="date" 
                         name="date" 
                         value={date}
-                        onChange={event => setDate(event.target.value)} 
+                        onChange={ (event) => setDate(event.target.value)} 
                         required />
 
                <div className="text-center ">

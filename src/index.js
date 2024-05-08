@@ -7,9 +7,10 @@ import { Provider } from 'react-redux';
 import JobApplicationReducer from './Components/JobApplicationReducer';
 
 
+
 const store = configureStore({
     reducer: {
-        jobs: JobApplicationReducer
+        jobs: JobApplicationReducer,
     }
 });
 

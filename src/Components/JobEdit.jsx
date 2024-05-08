@@ -9,17 +9,17 @@ function JobEdit(){
     const {id} = useParams();
     
     const jobs = useSelector((state) => state.jobs)
-    const existJob = jobs.filter(f => f.id == id);
-    const {title, company,category, portal, date} = existJob[0];
+    const existJob = jobs.filter(f => f.id === parseInt(id, 10));
+    const { title: existingTitle, company: existingCompany, category: existingCategory, portal: existingPortal, date: existingDate } = existJob.length > 0 ? existJob[0] : {};
 
-    const formattedDate = formatDateInput(date);
+    const formattedDate = formatDateInput(existingDate);
     console.log("formattedDate:", formattedDate);
 
-    const [editTitle, setTitle] = useState(title);
-    const [editCompany, setCompany] = useState(company);
-    const [editCategory, setCategory] = useState(category);
-    const [editPortal, setPortal] = useState(portal);
-    const [editDate, setDate] = useState(formattedDate);
+    const [editTitle, setEditTitle] = useState(existingTitle || "");
+    const [editCompany, setEditCompany] = useState(existingCompany || "");
+    const [editCategory, setEditCategory] = useState(existingCategory || "");
+    const [editPortal, setEditPortal] = useState(existingPortal || "");
+    const [editDate, setEditDate] = useState(existingDate || "");
 
     function formatDateInput(dateString){
         const [day, month, year] = dateString.split("-");
@@ -27,7 +27,7 @@ function JobEdit(){
     }
 
     useEffect(()=>{
-        setDate(formattedDate);
+        setEditDate(formattedDate);
     }, [formattedDate]);
 
 
@@ -61,7 +61,7 @@ function JobEdit(){
                         name="title"
                         value={editTitle}
                         placeholder="Enter job title"
-                        onChange={event => setTitle(event.target.value)} 
+                        onChange={event => setEditTitle(event.target.value)} 
                         required />
                     
                     <label>Company:</label>
@@ -70,14 +70,14 @@ function JobEdit(){
                         name="company" 
                         value={editCompany}
                         placeholder="Enter company name"
-                        onChange={event => setCompany(event.target.value)} 
+                        onChange={event => setEditCompany(event.target.value)} 
                         required />
 
                     <label>Category:</label>
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="category" 
                         value={editCategory}
-                        onChange={event => setCategory(event.target.value)} required>
+                        onChange={event => setEditCategory(event.target.value)} required>
                         <option value="">Select Category</option>
                         <option value="Government" >Government</option>
                         <option value="Swasta">Swasta</option>
@@ -88,7 +88,7 @@ function JobEdit(){
                     <select className="mb-4 w-[250px] rounded-md text-md px-2" 
                         name="portal" 
                         value={editPortal}
-                        onChange={event => setPortal(event.target.value)} required>
+                        onChange={event => setEditPortal(event.target.value)} required>
                         <option value="">Select Job Portal</option>
                         <option value="Jobstreet">Jobstreet</option>
                         <option value="MyFutureJob">MyFutureJob</option>
@@ -104,7 +104,7 @@ function JobEdit(){
                         type="date" 
                         name="date" 
                         value={editDate}
-                        onChange={event => setDate(event.target.value)} />
+                        onChange={event => setEditDate(event.target.value)} />
 
                     <div className="text-center">
                     <button className="w-[100px] text-l rounded-md my-4 py-2 mr-4 border bg-[#91C8E4]" 

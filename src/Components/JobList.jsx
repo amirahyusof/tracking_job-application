@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link }  from "react-router-dom";
-import { deleteJob } from "./JobApplicationReducer";
+import { addJob, deleteJob } from "./JobApplicationReducer";
 
 
 function JobList(){
     const dispatch = useDispatch();
     const jobs = useSelector((state)=>state.jobs);
 
-    console.log(jobs);
-    jobs.forEach(job => console.log(job.id));
+    useEffect( ()=> {
+    const savedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
+     savedJobs.forEach(job => {
+        dispatch(addJob(job));
+     })
+    }, [dispatch]);
+
     
     const handleDelete = (id) => {
         dispatch(deleteJob({id:id}));
+        const updatedJobs = jobs.filter(job => job.id !== id);
+        localStorage.setItem('jobs', JSON.stringify(updatedJobs));
     }
 
 

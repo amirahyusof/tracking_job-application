@@ -9,7 +9,7 @@ const formatDate = (dateString) => {
 
 const jobSlice = createSlice({
     name:"jobs",
-    initialState: dataList,
+    initialState: [],
     reducers: {
         addJob: (state, action) => {
             const { id, title, company, category, portal, date} = action.payload;
@@ -22,15 +22,13 @@ const jobSlice = createSlice({
             const editJobs = state.find(job => job.id === id);
             if(editJobs){
                 const formattedDate = formatDate(date);
-                state[editJobs]= {
-                    ...state[editJobs], 
-                    title,
-                    company,
-                    category,
-                    portal,
-                    date: formattedDate
-                };
-             }
+                editJobs.id = id;
+                editJobs.title = title;
+                editJobs.company = company;
+                editJobs.category = category;
+                editJobs.portal = portal;
+                editJobs.date = formattedDate;
+            };
          },
  
          deleteJob: (state, action) => {
