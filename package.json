@@ -1,6 +1,7 @@
 {
   "homepage": "https://amirahyusof.github.io/tracking_job-application",
   "name": "job-tracking",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
@@ -22,9 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
