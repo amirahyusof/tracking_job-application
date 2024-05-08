@@ -17,7 +17,7 @@ function JobList(){
 
     
     const handleDelete = (id) => {
-        dispatch(deleteJob({id:id}));
+        dispatch(deleteJob({id}));
         const updatedJobs = jobs.filter(job => job.id !== id);
         localStorage.setItem('jobs', JSON.stringify(updatedJobs));
     }

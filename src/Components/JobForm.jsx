@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addJob } from "./JobApplicationReducer";
 
 
 function JobForm(){
@@ -10,6 +12,8 @@ function JobForm(){
     const [date, setDate] = useState('');
 
     const navigate = useNavigate();
+    const jobs = useSelector((state)=>state.jobs);
+    const dispatch = useDispatch();
 
     useEffect(()=> {
         const saveTitle = localStorage.getItem('title') || "";
@@ -28,7 +32,9 @@ function JobForm(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-       
+        const nextId = jobs.length === 0? 1 : jobs[jobs.length-1].id + 1;
+        dispatch(addJob({id:nextId, title, company, category, portal, date}));
+
         localStorage.setItem('title', title)
         localStorage.setItem('company', company)
         localStorage.setItem('category', category)

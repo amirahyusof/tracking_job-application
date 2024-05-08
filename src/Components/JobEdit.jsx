@@ -9,17 +9,16 @@ function JobEdit(){
     const {id} = useParams();
     
     const jobs = useSelector((state) => state.jobs)
-    const existJob = jobs.filter(f => f.id === parseInt(id, 10));
-    const { title: existingTitle, company: existingCompany, category: existingCategory, portal: existingPortal, date: existingDate } = existJob.length > 0 ? existJob[0] : {};
+    const existJob = jobs.find(f => f.id === parseInt(id));
 
-    const formattedDate = formatDateInput(existingDate);
-    console.log("formattedDate:", formattedDate);
+    const formattedDate = formatDateInput(existJob.date);
+    
 
-    const [editTitle, setEditTitle] = useState(existingTitle || "");
-    const [editCompany, setEditCompany] = useState(existingCompany || "");
-    const [editCategory, setEditCategory] = useState(existingCategory || "");
-    const [editPortal, setEditPortal] = useState(existingPortal || "");
-    const [editDate, setEditDate] = useState(existingDate || "");
+    const [editTitle, setEditTitle] = useState(existJob? existJob.title : '');
+    const [editCompany, setEditCompany] = useState(existJob? existJob.company : '');
+    const [editCategory, setEditCategory] = useState(existJob? existJob.category : '');
+    const [editPortal, setEditPortal] = useState(existJob? existJob.portal : '');
+    const [editDate, setEditDate] = useState(existJob? existJob.date : '');
 
     function formatDateInput(dateString){
         const [day, month, year] = dateString.split("-");
@@ -34,7 +33,7 @@ function JobEdit(){
     const handleSave = (event) => {
         event.preventDefault();
         dispatch(editJob({
-            id: id,
+            id: parseInt(id),
             title: editTitle,
             company: editCompany,
             category: editCategory,
