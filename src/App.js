@@ -9,7 +9,7 @@ import JobEdit from './Components/JobEdit';
 const App = () => {
   return (
     <div className="w-full py-8 bg-[#4682A9]">
-      <BrowserRouter basename="/">
+      <BrowserRouter basename="/tracking_job-application">
       <nav className="flex justify-center items-center">
       <ul className="flex flex-row space-x-4 list-none  text-lg text-white">
           <li className='text-xl px-6 hover:underline'>
